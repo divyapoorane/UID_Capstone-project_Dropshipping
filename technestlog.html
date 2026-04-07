@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNest - Login</title>
+    <link rel="stylesheet" href="technestcss.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <a href="technesthtml.html" class="logo">Tech<span>Nest</span></a>
+    <ul class="nav-links">
+        <li><a href="technesthtml.html">Home</a></li>
+        <li><a href="technesthtml.html#shop">Shop</a></li>
+        <li><a href="technestlog.html">Login</a></li>
+        <li class="cart-link"><a href="#" id="cart-link">🛒 Cart (0)</a></li>
+    </ul>
+</nav>
+
+<!-- ===== LOGIN FORM ===== -->
+<div class="login-page">
+    <div class="login-box">
+
+        <a href="technesthtml.html" class="login-logo">Tech<span>Nest</span></a>
+
+        <h2>Welcome Back 👋</h2>
+        <p class="sub">Login to access your account and orders</p>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+        </div>
+
+        <div class="forgot">
+            <a href="#">Forgot password?</a>
+        </div>
+
+        <button class="btn-login" onclick="handleLogin()">Login to TechNest</button>
+
+        <div class="divider">or</div>
+
+        <p class="create-acc">Don't have an account? <a href="#">Create one for free →</a></p>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2024 <span>TechNest</span> — Student Project. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function handleLogin() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        if (email == "" || password == "") {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters.");
+            return;
+        }
+
+        alert("Login successful! Welcome back to TechNest 🎉");
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>
