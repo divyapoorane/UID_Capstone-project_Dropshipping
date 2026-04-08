@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechGuds - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo">Tech<span>Guds</span></a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#shop">Shop</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li class="cart-link"><a href="#">🛒 Cart (0)</a></li>
+    </ul>
+</nav>
+
+<div class="login-page">
+    <div class="login-box">
+
+        <a href="index.html" class="login-logo">Tech<span>Guds</span></a>
+
+        <h2>Create Account 🚀</h2>
+        <p class="sub">Sign up to start shopping with TechGuds</p>
+
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Create a password">
+        </div>
+
+        <div class="form-group">
+            <label for="confirm">Confirm Password</label>
+            <input type="password" id="confirm" placeholder="Re-enter password">
+        </div>
+
+        <button class="btn-login" onclick="handleSignup()">Create Account</button>
+
+        <div class="divider">or</div>
+
+        <p class="create-acc">
+            Already have an account? 
+            <a href="login.html">Login →</a>
+        </p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2024 <span>TechGuds</span> — Student Project. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+function handleSignup() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var confirm = document.getElementById("confirm").value;
+
+    if (name == "" || email == "" || password == "" || confirm == "") {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+    }
+
+    if (password !== confirm) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    // Save user data (localStorage)
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPassword", password);
+
+    alert("Account created successfully 🎉");
+
+    // Redirect to login
+    window.location.href = "login.html";
+}
+</script>
+</body>
+</html>
