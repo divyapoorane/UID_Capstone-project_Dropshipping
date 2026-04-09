@@ -85,14 +85,12 @@ function handleSignup() {
         return;
     }
 
-    // Save user data (localStorage)
     localStorage.setItem("userName", name);
     localStorage.setItem("userEmail", email);
     localStorage.setItem("userPassword", password);
 
     alert("Account created successfully 🎉");
 
-    // Redirect to login
     window.location.href = "login.html";
 }
 </script>
