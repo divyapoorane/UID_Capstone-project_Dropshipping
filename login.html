@@ -19,7 +19,6 @@
     </ul>
 </nav>
 
-<!-- ===== LOGIN FORM ===== -->
 <div class="login-page">
     <div class="login-box">
 
@@ -57,11 +56,13 @@
 </footer>
 
 <script>
-function handleLogin() {
+function handleSignup() {
+    var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
+    var confirm = document.getElementById("confirm").value;
 
-    if (email == "" || password == "") {
+    if (name == "" || email == "" || password == "" || confirm == "") {
         alert("Please fill in all fields.");
         return;
     }
@@ -72,19 +73,26 @@ function handleLogin() {
         return;
     }
 
-    var savedEmail = localStorage.getItem("userEmail");
-    var savedPassword = localStorage.getItem("userPassword");
-    var savedName = localStorage.getItem("userName");
-
-    if (email === savedEmail && password === savedPassword) {
-        localStorage.setItem("isLoggedIn", "true");
-
-        alert("Welcome back " + savedName + " 🎉");
-
-        window.location.href = "index.html";
-    } else {
-        alert("Invalid email or password");
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+    if (!passwordPattern.test(password)) {
+        alert("Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number.");
+        return;
     }
+
+    if (password !== confirm) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    // Save user data (localStorage)
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPassword", password);
+
+    alert("Account created successfully 🎉");
+
+    // Redirect to login
+    window.location.href = "login.html";
 }
 </script>
     
