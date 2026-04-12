@@ -62,7 +62,6 @@
         <p>&copy; 2024 <span>TechGuds</span> — Student Project. All rights reserved.</p>
     </div>
 </footer>
-
 <script>
 function handleSignup() {
     var name = document.getElementById("name").value;
@@ -75,8 +74,16 @@ function handleSignup() {
         return;
     }
 
-    if (password.length < 6) {
-        alert("Password must be at least 6 characters.");
+    // Email validation
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+    if (!passwordPattern.test(password)) {
+        alert("Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number.");
         return;
     }
 
@@ -91,6 +98,7 @@ function handleSignup() {
 
     alert("Account created successfully 🎉");
 
+    // Redirect to login
     window.location.href = "login.html";
 }
 </script>
