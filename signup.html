@@ -80,6 +80,10 @@ function handleSignup() {
         alert("Please enter a valid email address.");
         return;
     }
+    if (!/^[A-Za-z]+$/.test(name)) { 
+        alert("Only letters allowed"); 
+        return; 
+    }
 
     var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
     if (!passwordPattern.test(password)) {
