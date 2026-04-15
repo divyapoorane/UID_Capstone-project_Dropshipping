@@ -923,6 +923,11 @@ document.getElementById("cart-link").addEventListener("click", function(e) {
     showCart();
 });
 
+function goToPayment() {
+    alert("Proceeding to payment gateway...");
+    window.location.href = "payment.html";
+}
+
 function showCart() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let total = 0;
@@ -996,9 +1001,9 @@ function showCart() {
     ← Back to Shop
 </button>
 
-                <button class="btn-shop">
-                    Buy Now
-                </button>
+            <button class="btn-shop" onclick="window.location.href='payment.html'">
+    Buy Now
+</button>
             </div>
         </div>
     </section>
