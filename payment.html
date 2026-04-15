@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechGuds - Payment</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo">Tech<span>Guds</span></a>
+</nav>
+
+<div class="login-page">
+    <div class="login-box">
+
+        <a href="index.html" class="login-logo">Tech<span>Guds</span></a>
+
+        <h2>Select Payment Method 💳</h2>
+        <p class="sub">Choose how you want to pay</p>
+
+        <div class="form-group">
+            <label>
+                <input type="radio" name="payment" value="card"> Debit / Credit Card
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="radio" name="payment" value="upi"> UPI (GPay / PhonePe)
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="radio" name="payment" value="cod"> Cash on Delivery
+            </label>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="details" placeholder="Enter details (Card / UPI ID)">
+        </div>
+
+        <button class="btn-login" onclick="proceedPayment()">Proceed to Pay</button>
+
+        <p class="create-acc" style="margin-top:10px;">
+            Secure payment • Demo only
+        </p>
+
+    </div>
+</div>
+
+<footer>
+    <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2024 <span>TechGuds</span> — Student Project.</p>
+    </div>
+</footer>
+
+<script>
+function proceedPayment() {
+
+    var methods = document.getElementsByName("payment");
+    var selected = "";
+
+    for (var i = 0; i < methods.length; i++) {
+        if (methods[i].checked) {
+            selected = methods[i].value;
+        }
+    }
+
+    var details = document.getElementById("details").value;
+
+    if (selected == "") {
+        alert("Please select a payment method.");
+        return;
+    }
+
+    if (selected !== "cod" && details == "") {
+        alert("Please enter payment details.");
+        return;
+    }
+
+    alert("Payment Successful 🎉");
+
+    window.location.href = "#";
+}
+</script>
+
+</body>
+</html>
